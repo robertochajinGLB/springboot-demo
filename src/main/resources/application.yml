@@ -1,0 +1,10 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: demo-service
+  data:
+    mongodb:
+      host: localhost
+      database: embeded_db
