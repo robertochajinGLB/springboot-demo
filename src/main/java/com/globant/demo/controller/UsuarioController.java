@@ -1,8 +1,9 @@
 package com.globant.demo.controller;
 
-import com.globant.demo.model.Usuario;
+import com.globant.demo.dto.UsuarioDTO;
+import com.globant.demo.entity.Usuario;
+import com.globant.demo.service.BaseService;
 import com.globant.demo.service.UsuarioServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-  private UsuarioServiceImpl service;
+  private BaseService service;
 
   public UsuarioController(UsuarioServiceImpl service) {
     this.service = service;
@@ -35,7 +36,8 @@ public class UsuarioController {
   }
 
   @PostMapping
-  Mono<Usuario> create(@RequestBody Usuario usuario) {
-    return service.create(usuario);
+  Mono<Usuario> create(@RequestBody UsuarioDTO usuario) {
+    return service
+        .create(Usuario.builder().id(usuario.getId()).nombre(usuario.getNombre()).build());
   }
 }

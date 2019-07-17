@@ -1,6 +1,6 @@
 package com.globant.demo.service;
 
-import com.globant.demo.model.Usuario;
+import com.globant.demo.entity.Usuario;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

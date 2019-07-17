@@ -2,7 +2,8 @@ package com.globant.demo.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.globant.demo.model.Usuario;
+import com.globant.demo.entity.Usuario;
+import com.globant.demo.exception.OwnRuntimeException;
 import com.globant.demo.repository.UsuarioRepository;
 import com.globant.demo.service.UsuarioServiceImpl;
 import org.junit.Before;
@@ -31,10 +32,10 @@ public class UsuarioControllerTest {
   @MockBean
   private UsuarioRepository repository;
 
-  Usuario usuario1 = new Usuario("123abc", "usuario test");
+  private Usuario usuario1 = new Usuario("123abc", "usuario test");
 
   @Before
-  public void setUp() throws Exception {
+  public void setUp() throws OwnRuntimeException {
     Mockito
         .when(this.service.findById("123abc"))
         .thenReturn(Mono.just(usuario1));

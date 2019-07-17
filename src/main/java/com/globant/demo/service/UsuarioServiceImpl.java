@@ -1,7 +1,7 @@
 package com.globant.demo.service;
 
 
-import com.globant.demo.model.Usuario;
+import com.globant.demo.entity.Usuario;
 import com.globant.demo.repository.UsuarioRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
